@@ -5777,9 +5777,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b67184beee6b4fafae6ff56988f7e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pianoIsOn: 0
   mySource: {fileID: 1666076238}
   clip1: {fileID: 8300000, guid: 75a83589ee6a9b346993477277bc7cdf, type: 3}
   clip2: {fileID: 8300000, guid: e2ad59b2e40aa65438db89ca74e2810a, type: 3}
+  clip3: {fileID: 0}
+  clip4: {fileID: 0}
+  clip5: {fileID: 0}
+  clip6: {fileID: 0}
+  clip7: {fileID: 0}
+  clip8: {fileID: 0}
   releaseTime: 0.5
   maxVolume: 1
   usePiano: 0
@@ -19759,9 +19766,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b67184beee6b4fafae6ff56988f7e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pianoIsOn: 0
   mySource: {fileID: 1666076240}
   clip1: {fileID: 8300000, guid: 75a83589ee6a9b346993477277bc7cdf, type: 3}
   clip2: {fileID: 8300000, guid: e2ad59b2e40aa65438db89ca74e2810a, type: 3}
+  clip3: {fileID: 8300000, guid: 60a9cf0b5469f1249ba4ba8f1c42d6c9, type: 3}
+  clip4: {fileID: 8300000, guid: 96755aa99d924b34480a5ba4696925bc, type: 3}
+  clip5: {fileID: 8300000, guid: 1eb253eb477c8b348bf297fdf2e33989, type: 3}
+  clip6: {fileID: 8300000, guid: ec012a389993a534ea8b635091a10a83, type: 3}
+  clip7: {fileID: 8300000, guid: b83d5780c701cf640be74fa179e8c845, type: 3}
+  clip8: {fileID: 8300000, guid: 3b9278c6d457d824899e6c7a91e4e566, type: 3}
   releaseTime: 1
   maxVolume: 1
   usePiano: 0
