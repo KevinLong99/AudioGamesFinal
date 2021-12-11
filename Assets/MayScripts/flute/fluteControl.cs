@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 public class fluteControl : MonoBehaviour
 {
     public AudioMixerSnapshot normal;
@@ -9,6 +10,7 @@ public class fluteControl : MonoBehaviour
     public AudioMixerSnapshot sad;
     public AudioMixerSnapshot happy;
     public AudioMixerSnapshot annoyed;
+    [SerializeField] TMP_Text mytext;
 
     public GameObject FlutePlayer;
     public GameObject player;
@@ -32,7 +34,8 @@ public class fluteControl : MonoBehaviour
             Debug.Log("normal");
             Globals.FmaxVolume = normalMaxVol;
             Globals.FattackTime = normalAttackTime;
-            Globals.FreleaseTime = normalReleaseTime;
+            Globals.FreleaseTime = 0.5f;
+            mytext.text = "normal";
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
@@ -41,27 +44,34 @@ public class fluteControl : MonoBehaviour
             Globals.FmaxVolume = normalMaxVol;
             Globals.FattackTime = normalAttackTime;
             Globals.FreleaseTime = 2F;
+            mytext.text = "reverb";
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             sad.TransitionTo(0);
             Debug.Log("sad");
             Globals.FmaxVolume = 0.6F;
-            Globals.FattackTime = 2F;
+            Globals.FattackTime = 4F;
             Globals.FreleaseTime = 2F;
+            mytext.text = "sad";
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
             happy.TransitionTo(0);
             Debug.Log("happy");
             Globals.FmaxVolume = 1F;
-            Globals.FattackTime = 0.7F;
+            Globals.FattackTime = 0.4F;
             Globals.FreleaseTime = 0.5F;
+            mytext.text = "happy";
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
             annoyed.TransitionTo(0);
             Debug.Log("annoy");
+            mytext.text = "misarible";
+            Globals.FmaxVolume = normalMaxVol;
+            Globals.FattackTime = normalAttackTime;
+            Globals.FreleaseTime = 1;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
