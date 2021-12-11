@@ -45,14 +45,17 @@ public class fluteControl : MonoBehaviour
         {
             sad.TransitionTo(0);
             Debug.Log("sad");
-            Globals.FmaxVolume = 0.8F;
-            Globals.FattackTime = 0.7F;
-            Globals.FreleaseTime = 0.5F;
+            Globals.FmaxVolume = 0.6F;
+            Globals.FattackTime = 2F;
+            Globals.FreleaseTime = 2F;
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
             happy.TransitionTo(0);
             Debug.Log("happy");
+            Globals.FmaxVolume = 1F;
+            Globals.FattackTime = 0.7F;
+            Globals.FreleaseTime = 0.5F;
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
