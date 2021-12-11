@@ -52,12 +52,13 @@ public class fluteControl : MonoBehaviour
             Debug.Log("annoy");
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
+            Debug.Log("change to piano");
             FlutePlayer.SetActive(false) ;
             PianoPlayer.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             FlutePlayer.SetActive(true);
             PianoPlayer.SetActive(false);

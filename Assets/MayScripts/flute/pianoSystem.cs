@@ -17,24 +17,25 @@ public class pianoSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicNote.SetActive(false);
+        musicNote.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
-        {
-            musicNote.SetActive(true);
-        }
-        else
-        {
-            musicNote.SetActive(false);
-        }
+        //if (Input.anyKey)
+        //{
+        //    musicNote.SetActive(true);
+        //}
+        //else
+        //{
+        //    musicNote.SetActive(false);
+        //}
 
         //if we press down "A" for the length of attack time, we reach max volume
         if (Input.GetKey(keyToPlay))
         {
+            pianoSource.volume = 1f;
             //musicNote.SetActive(true);
             pianoSource.Play();
         }

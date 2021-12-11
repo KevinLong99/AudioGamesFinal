@@ -7843,6 +7843,7 @@ MonoBehaviour:
   optionObject: {fileID: 6588401430377697468, guid: bee4c83a1fde24303ad4882cbf68df3e, type: 3}
   optionObjectUI: {fileID: 7620986671176040274, guid: e0bd34100082e420788636b2669258b7, type: 3}
   fluteManager: {fileID: 1841988340}
+  pianoPlayer: {fileID: 541148155}
   PlayerAnimator: {fileID: 1666076228}
   player: {fileID: 1666076227}
   homeMang: {fileID: 392288612}
@@ -7851,6 +7852,7 @@ MonoBehaviour:
   checkObject: {fileID: 1242970751111882785, guid: b1733a4775525419fb287c182751e3e6, type: 3}
   saveRecord: 0
   saved: 0
+  started: 0
 --- !u!212 &708814306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14647,7 +14649,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250030701}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770d3e65273f34d5a8f08861e09749c0, type: 3}
   m_Name: 
@@ -14657,6 +14659,10 @@ MonoBehaviour:
   sad: {fileID: 7216838924258974050, guid: a6cb786ae06854da88611d9077d1cfe1, type: 2}
   happy: {fileID: 2699735295013026089, guid: a6cb786ae06854da88611d9077d1cfe1, type: 2}
   annoyed: {fileID: -6889143663289665708, guid: a6cb786ae06854da88611d9077d1cfe1, type: 2}
+  FlutePlayer: {fileID: 1841988340}
+  PianoPlayer: {fileID: 541148155}
+  normalMaxVol: 1
+  normalAttackTime: 1
 --- !u!1 &1253818089
 GameObject:
   m_ObjectHideFlags: 0

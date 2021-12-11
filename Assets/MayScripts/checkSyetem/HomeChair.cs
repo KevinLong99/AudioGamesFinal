@@ -43,6 +43,7 @@ public class HomeChair : MonoBehaviour
         playerBody = player.GetComponent<Rigidbody2D>();
         hometrans = homeMang.GetComponent<HomeTrans>();
         checkmanager = player.GetComponent<checkManager>();
+        pianoPlayer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -111,6 +112,7 @@ public class HomeChair : MonoBehaviour
                     BlackAnimator.SetTrigger("isBlackOut");
                     Debug.Log("go under, change scene");
                     fluteManager.SetActive(false);
+                    pianoPlayer.SetActive(false);
                     if (!checkmanager.first)
                     {
                         option = 0;
@@ -126,6 +128,7 @@ public class HomeChair : MonoBehaviour
                     if(started == 0)
                     {
                         fluteManager.SetActive(true);
+                        pianoPlayer.SetActive(false);
                         started = 1;
                     }
                     
