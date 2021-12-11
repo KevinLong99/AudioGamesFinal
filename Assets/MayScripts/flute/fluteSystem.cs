@@ -29,9 +29,9 @@ public class fluteSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxVolume = Globals.FmaxVolume;
-        attackTime = Globals.FattackTime;
-        releaseTime = Globals.FreleaseTime;
+        //maxVolume = Globals.FmaxVolume;
+        //attackTime = Globals.FattackTime;
+        //releaseTime = Globals.FreleaseTime;
         if (Input.anyKey)
         {
             musicNote.SetActive(true);

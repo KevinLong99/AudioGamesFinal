@@ -14,7 +14,7 @@ public class fluteControl : MonoBehaviour
     public GameObject PianoPlayer;
 
     public float normalMaxVol = 1;
-    public float normalMaxVol = 
+    public float normalAttackTime = 1;
 
     // Start is called before the first frame update
     void Start()
