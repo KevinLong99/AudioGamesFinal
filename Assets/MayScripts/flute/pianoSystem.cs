@@ -17,7 +17,7 @@ public class pianoSystem : MonoBehaviour
     public AudioSource mySource;
     public AudioClip clip1;
     public AudioClip clip2;
-
+   
     // Start is called before the first frame update
     void Start()
     {

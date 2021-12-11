@@ -35,6 +35,7 @@ public class HomeChair : MonoBehaviour
     //bool optionshow = false;
     public bool saved = false;
     public int started = 0;
+    
 
     
     // Start is called before the first frame update
@@ -43,7 +44,7 @@ public class HomeChair : MonoBehaviour
         playerBody = player.GetComponent<Rigidbody2D>();
         hometrans = homeMang.GetComponent<HomeTrans>();
         checkmanager = player.GetComponent<checkManager>();
-        pianoPlayer.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -120,6 +121,7 @@ public class HomeChair : MonoBehaviour
                         Come = false;
                     }
                     started = 0;
+                    player.GetComponent<TTEST>().usePiano = false;
 
                 }
                 if (option == 2)
@@ -128,7 +130,7 @@ public class HomeChair : MonoBehaviour
                     if(started == 0)
                     {
                         fluteManager.SetActive(true);
-                        pianoPlayer.SetActive(false);
+                        player.GetComponent<TTEST>().usePiano = false;
                         started = 1;
                     }
                     
@@ -140,6 +142,7 @@ public class HomeChair : MonoBehaviour
                     Debug.Log("leave");
                     player.GetComponent<PlayerMove>().disableMove = false;
                     player.GetComponent<playerEnergy>().disableEner = false;
+                    player.GetComponent<TTEST>().usePiano = false;
                     //duringRes = false;
                     option = 0;
 

@@ -32,6 +32,7 @@ public class fluteSystem : MonoBehaviour
         maxVolume = fluteControl.Globals.FmaxVolume;
         attackTime = fluteControl.Globals.FattackTime;
         releaseTime = fluteControl.Globals.FreleaseTime;
+
         if (Input.anyKey)
         {
             musicNote.SetActive(true);

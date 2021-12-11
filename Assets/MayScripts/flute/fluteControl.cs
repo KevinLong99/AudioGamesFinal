@@ -11,7 +11,8 @@ public class fluteControl : MonoBehaviour
     public AudioMixerSnapshot annoyed;
 
     public GameObject FlutePlayer;
-    public GameObject PianoPlayer;
+    public GameObject player;
+
 
     public float normalMaxVol = 1;
     public float normalAttackTime = 1;
@@ -66,13 +67,13 @@ public class fluteControl : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             Debug.Log("change to piano");
-            FlutePlayer.SetActive(false) ;
-            PianoPlayer.SetActive(true);
+            FlutePlayer.SetActive(true) ;
+            player.GetComponent<TTEST>().usePiano = false;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            FlutePlayer.SetActive(true);
-            PianoPlayer.SetActive(false);
+            FlutePlayer.SetActive(false);
+            player.GetComponent<TTEST>().usePiano = true;
         }
     }
 
