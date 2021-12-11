@@ -12,7 +12,7 @@ public class HomeChair : MonoBehaviour
     GameObject newOptionsUI;
     public GameObject optionObjectUI;
     public GameObject fluteManager;
-
+    public GameObject pianoPlayer;
     public Animator PlayerAnimator;
 
     [SerializeField] GameObject player;
@@ -34,6 +34,8 @@ public class HomeChair : MonoBehaviour
     public bool saveRecord = false;
     //bool optionshow = false;
     public bool saved = false;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -133,6 +135,7 @@ public class HomeChair : MonoBehaviour
                     option = 0;
 
                     fluteManager.SetActive(false);
+                    pianoPlayer.SetActive(false);
                     PlayerMove.Globals.ApplyV = true;
                     playerBody.gravityScale = 4.5f;
                     //transform.position = new Vector3(transform.position.x, transform.position.y - 1);

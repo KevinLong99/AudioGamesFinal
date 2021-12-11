@@ -10,6 +10,11 @@ public class fluteControl : MonoBehaviour
     public AudioMixerSnapshot happy;
     public AudioMixerSnapshot annoyed;
 
+    public GameObject FlutePlayer;
+    public GameObject PianoPlayer;
+
+    public float normalMaxVol = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,48 @@ public class fluteControl : MonoBehaviour
         {
             normal.TransitionTo(0);
             Debug.Log("normal");
+            //F
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            reverb.TransitionTo(0);
+            Debug.Log("reverb");
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            sad.TransitionTo(0);
+            Debug.Log("sad");
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            happy.TransitionTo(0);
+            Debug.Log("happy");
+        }
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            annoyed.TransitionTo(0);
+            Debug.Log("annoy");
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            FlutePlayer.SetActive(false) ;
+            PianoPlayer.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            FlutePlayer.SetActive(true);
+            PianoPlayer.SetActive(false);
         }
     }
+}
+
+public static class Globals
+{
+    public static float FmaxVolume;
+    public static float FattackTime;
+    public static float FreleaseTime;
+
+
+
 }
