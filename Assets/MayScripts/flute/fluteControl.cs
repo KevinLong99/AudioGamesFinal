@@ -15,6 +15,9 @@ public class fluteControl : MonoBehaviour
     public GameObject FlutePlayer;
     public GameObject player;
 
+    public fluteSystem disA;
+    public GameObject disB;
+    public GameObject disC;
 
     public float normalMaxVol = 1;
     public float normalAttackTime = 1;
@@ -36,6 +39,9 @@ public class fluteControl : MonoBehaviour
             Globals.FattackTime = normalAttackTime;
             Globals.FreleaseTime = 0.5f;
             mytext.text = "normal";
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
@@ -43,17 +49,25 @@ public class fluteControl : MonoBehaviour
             Debug.Log("reverb");
             Globals.FmaxVolume = normalMaxVol;
             Globals.FattackTime = normalAttackTime;
-            Globals.FreleaseTime = 2F;
+            Globals.FreleaseTime = 4F;
             mytext.text = "reverb";
+
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             sad.TransitionTo(0);
             Debug.Log("sad");
-            Globals.FmaxVolume = 0.6F;
-            Globals.FattackTime = 4F;
+            Globals.FmaxVolume = 0.8F;
+            Globals.FattackTime = 2F;
             Globals.FreleaseTime = 2F;
             mytext.text = "sad";
+
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
@@ -63,6 +77,9 @@ public class fluteControl : MonoBehaviour
             Globals.FattackTime = 0.4F;
             Globals.FreleaseTime = 0.5F;
             mytext.text = "happy";
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
@@ -72,7 +89,37 @@ public class fluteControl : MonoBehaviour
             Globals.FmaxVolume = normalMaxVol;
             Globals.FattackTime = normalAttackTime;
             Globals.FreleaseTime = 1;
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
         }
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            normal.TransitionTo(0);
+            Debug.Log("tired");
+            Globals.FmaxVolume = 0.6F;
+            Globals.FattackTime = 4F;
+            Globals.FreleaseTime = 1.5F;
+            mytext.text = "tired";
+            disA.enabled = true;
+            disB.SetActive(true);
+            disC.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            normal.TransitionTo(0);
+            Debug.Log("broken");
+            Globals.FmaxVolume = 0.8F;
+            Globals.FattackTime = 2F;
+            Globals.FreleaseTime = 1.5F;
+            mytext.text = "broken";
+            disA.enabled = false;
+            disB.SetActive(false);
+            disC.SetActive(false);
+           
+
+        }
+
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {

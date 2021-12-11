@@ -9,6 +9,8 @@ public class fluteSystem : MonoBehaviour
     public float maxVolume;
     public float attackTime;
     public float releaseTime;
+    public bool disable = false;
+    public bool dised = false;
 
     public KeyCode keyToPlay = KeyCode.A;
 
@@ -32,70 +34,72 @@ public class fluteSystem : MonoBehaviour
         maxVolume = fluteControl.Globals.FmaxVolume;
         attackTime = fluteControl.Globals.FattackTime;
         releaseTime = fluteControl.Globals.FreleaseTime;
-
-        if (Input.anyKey)
+        if (!dised)
         {
-            musicNote.SetActive(true);
-        }
-        else
-        {
-            musicNote.SetActive(false);
-        }
-
-        //if we press down "A" for the length of attack time, we reach max volume
-        if (Input.GetKey(keyToPlay))
-        {
-            //musicNote.SetActive(true);
-            switch (asrState)
+            if (Input.anyKey)
             {
-                case ASRState.inactive:
-                    asrState = ASRState.attack;
-                    break;
-                case ASRState.attack:
-                    if (audioSource.volume < maxVolume)
-                    {
-                        audioSource.volume += (Time.deltaTime / attackTime) * maxVolume;
-                    }
-
-                    else if (audioSource.volume >= maxVolume)
-                    {
-                        audioSource.volume = maxVolume;
-                        asrState = ASRState.sustain;
-                    }
-                    break;
-                case ASRState.sustain:
-                    break;
-                case ASRState.release:
-                    asrState = ASRState.attack;
-                    break;
+                musicNote.SetActive(true);
             }
-        }
-
-        else
-        {
-            //musicNote.SetActive(false);
-            switch (asrState)
+            else
             {
-                case ASRState.inactive:
-                    break;
-                case ASRState.attack:
-                    asrState = ASRState.release;
-                    break;
-                case ASRState.sustain:
-                    asrState = ASRState.release;
-                    break;
-                case ASRState.release:
+                musicNote.SetActive(false);
+            }
 
-                    if (audioSource.volume > 0f)
-                    {
-                        audioSource.volume -= (Time.deltaTime / releaseTime) * maxVolume;
-                    }
-                    else
-                    {
-                        audioSource.volume = 0f;
-                        asrState = ASRState.inactive;
-                    }
-                    break;
+            //if we press down "A" for the length of attack time, we reach max volume
+            if (Input.GetKey(keyToPlay))
+            {
+                //musicNote.SetActive(true);
+                switch (asrState)
+                {
+                    case ASRState.inactive:
+                        asrState = ASRState.attack;
+                        break;
+                    case ASRState.attack:
+                        if (audioSource.volume < maxVolume)
+                        {
+                            audioSource.volume += (Time.deltaTime / attackTime) * maxVolume;
+                        }
+
+                        else if (audioSource.volume >= maxVolume)
+                        {
+                            audioSource.volume = maxVolume;
+                            asrState = ASRState.sustain;
+                        }
+                        break;
+                    case ASRState.sustain:
+                        break;
+                    case ASRState.release:
+                        asrState = ASRState.attack;
+                        break;
+                }
+            }
+
+            else
+            {
+                //musicNote.SetActive(false);
+                switch (asrState)
+                {
+                    case ASRState.inactive:
+                        break;
+                    case ASRState.attack:
+                        asrState = ASRState.release;
+                        break;
+                    case ASRState.sustain:
+                        asrState = ASRState.release;
+                        break;
+                    case ASRState.release:
+
+                        if (audioSource.volume > 0f)
+                        {
+                            audioSource.volume -= (Time.deltaTime / releaseTime) * maxVolume;
+                        }
+                        else
+                        {
+                            audioSource.volume = 0f;
+                            asrState = ASRState.inactive;
+                        }
+                        break;
+                }
             }
         }
 
