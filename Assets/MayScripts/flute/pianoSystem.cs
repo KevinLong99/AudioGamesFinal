@@ -17,7 +17,7 @@ public class pianoSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicNote.SetActive(true);
+        //musicNote.SetActive(true);
     }
 
     // Update is called once per frame

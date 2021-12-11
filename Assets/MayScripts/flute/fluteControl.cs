@@ -15,7 +15,7 @@ public class fluteControl : MonoBehaviour
 
     public float normalMaxVol = 1;
     public float normalAttackTime = 1;
-
+    public float normalReleaseTime = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +29,25 @@ public class fluteControl : MonoBehaviour
         {
             normal.TransitionTo(0);
             Debug.Log("normal");
-            //F
+            Globals.FmaxVolume = normalMaxVol;
+            Globals.FattackTime = normalAttackTime;
+            Globals.FreleaseTime = normalReleaseTime;
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             reverb.TransitionTo(0);
             Debug.Log("reverb");
+            Globals.FmaxVolume = normalMaxVol;
+            Globals.FattackTime = normalAttackTime;
+            Globals.FreleaseTime = 2F;
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             sad.TransitionTo(0);
             Debug.Log("sad");
+            Globals.FmaxVolume = 0.8F;
+            Globals.FattackTime = 0.7F;
+            Globals.FreleaseTime = 0.5F;
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
@@ -67,9 +75,9 @@ public class fluteControl : MonoBehaviour
 
     public static class Globals
     {
-        public static float FmaxVolume;
-        public static float FattackTime;
-        public static float FreleaseTime;
+        public static float FmaxVolume =1;
+        public static float FattackTime =1;
+        public static float FreleaseTime =1;
 
 
 
