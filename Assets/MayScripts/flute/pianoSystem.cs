@@ -14,6 +14,10 @@ public class pianoSystem : MonoBehaviour
 
     public GameObject musicNote;
 
+    public AudioSource mySource;
+    public AudioClip clip1;
+    public AudioClip clip2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,18 @@ public class pianoSystem : MonoBehaviour
             pianoSource.volume = 1f;
             //musicNote.SetActive(true);
             pianoSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            mySource.clip = clip1;
+            mySource.Play();
+
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            mySource.clip = clip2;
+            mySource.Play();
         }
 
         if (Input.GetKeyUp(keyToPlay)){
