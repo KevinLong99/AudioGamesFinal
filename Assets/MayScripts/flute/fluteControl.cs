@@ -14,6 +14,7 @@ public class fluteControl : MonoBehaviour
     public GameObject PianoPlayer;
 
     public float normalMaxVol = 1;
+    public float normalMaxVol = 
 
     // Start is called before the first frame update
     void Start()
@@ -62,14 +63,16 @@ public class fluteControl : MonoBehaviour
             PianoPlayer.SetActive(false);
         }
     }
+
+    public static class Globals
+    {
+        public static float FmaxVolume;
+        public static float FattackTime;
+        public static float FreleaseTime;
+
+
+
+    }
 }
 
-public static class Globals
-{
-    public static float FmaxVolume;
-    public static float FattackTime;
-    public static float FreleaseTime;
 
-
-
-}

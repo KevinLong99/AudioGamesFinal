@@ -34,6 +34,7 @@ public class HomeChair : MonoBehaviour
     public bool saveRecord = false;
     //bool optionshow = false;
     public bool saved = false;
+    public int started = 0;
 
     
     // Start is called before the first frame update
@@ -116,13 +117,18 @@ public class HomeChair : MonoBehaviour
                         StartCoroutine(waitForTrans());
                         Come = false;
                     }
-
+                    started = 0;
 
                 }
                 if (option == 2)
                 {
                     Debug.Log("play flute");
-                    fluteManager.SetActive(true);
+                    if(started == 0)
+                    {
+                        fluteManager.SetActive(true);
+                        started = 1;
+                    }
+                    
                     PlayerAnimator.SetBool("isFlute", true);
                     PlayerAnimator.SetBool("isSitting", false);
                 }
@@ -143,6 +149,7 @@ public class HomeChair : MonoBehaviour
                     PlayerAnimator.SetBool("isSitting", false);
                     PlayerAnimator.SetBool("isStanding", true);
                     Come = false;
+                    started = 0;
 
                 }
             }
