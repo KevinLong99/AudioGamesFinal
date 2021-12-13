@@ -51,6 +51,14 @@ public class PlayerMove : MonoBehaviour
 
     public LayerMask layerMask;
 
+    public AudioSource jumpAudio;
+    public AudioSource doubleJumpAudio;
+    public AudioSource dashAudio;
+    public AudioSource walkAudio;
+    public float maxWalkVolume = 0.5f;
+    public float releaseTime = 0.45f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +66,7 @@ public class PlayerMove : MonoBehaviour
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         jumpKeyReleased = true;
+        walkAudio.volume = 0;
         
     }
 
@@ -163,6 +172,12 @@ public class PlayerMove : MonoBehaviour
             PlayerAnimator.SetBool("isStanding", false);
 
             HandleLRMovement(speed);
+     
+
+            if (walkAudio.volume <= 0.1)
+            {
+                walkAudio.volume = maxWalkVolume;
+            }
         }
         else if (Input.GetKey(KeyCode.LeftArrow) && !isDashing)
         {
@@ -172,11 +187,24 @@ public class PlayerMove : MonoBehaviour
 
             HandleLRMovement(-speed);
 
+            //if (!walkAudio.isPlaying)
+            //{
+            //   walkAudio.Play();
+            //}
+            if (walkAudio.volume <= 0.1)
+            {
+                walkAudio.volume = maxWalkVolume;
+            }
         }
         else
         {
             PlayerAnimator.SetBool("isWalking", false);
             PlayerAnimator.SetBool("isStanding", true);
+          
+            if (walkAudio.volume > 0)
+                {
+                walkAudio.volume -= (Time.deltaTime / releaseTime) * maxWalkVolume;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Z))   //fall when jump key released
@@ -218,6 +246,8 @@ public class PlayerMove : MonoBehaviour
 
             jumpKeyReleased = false;
             hasJumpedOnce = true;
+            jumpAudio.Play();
+
             //Debug.Log("jump time:" + Time.deltaTime);
             //Debug.Log("firstJump");
             PlayerAnimator.SetBool("isJumpUp", true);
@@ -244,6 +274,7 @@ public class PlayerMove : MonoBehaviour
             PlayerAnimator.SetBool("isJumpUp", true);
             PlayerAnimator.SetBool("isJumpDown", false);
             PlayerAnimator.SetBool("isStanding", false);
+            doubleJumpAudio.Play();
             //PlayerAnimator.SetBool("isWalking", false);
         }
 
@@ -310,6 +341,7 @@ public class PlayerMove : MonoBehaviour
         myBody.velocity = new Vector2(0f, 0f);
         isDashing = false;
         myBody.gravityScale = gravity;
+        dashAudio.Play();
     }
 
 
