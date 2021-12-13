@@ -84,8 +84,8 @@ public class fluteControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha5))
         {
             annoyed.TransitionTo(0);
-            Debug.Log("annoy");
-            mytext.text = "misarible";
+            Debug.Log("miserable");
+            mytext.text = "miserable";
             Globals.FmaxVolume = normalMaxVol;
             Globals.FattackTime = normalAttackTime;
             Globals.FreleaseTime = 1;
